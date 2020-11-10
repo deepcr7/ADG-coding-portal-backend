@@ -2,10 +2,6 @@ const mongoose = require('mongoose')
 
 const userSchema = mongoose.Schema(
   {
-    _id: {
-      type: String,
-      required: true
-    },
     name: {
       type: String,
       required: true
@@ -19,6 +15,12 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
       unique: true
+    },
+    email:{
+      type:String,
+      required: true,
+      unique: true,
+      match:/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/ 
     },
     questions : [
       {
@@ -37,7 +39,7 @@ const userSchema = mongoose.Schema(
     },
     points: {
       type: Number,
-      required: true
+      //required: true
     },
     githubLink: {
       type: String,
@@ -51,14 +53,17 @@ const userSchema = mongoose.Schema(
     },
     userImage: {
       type: String,
-      required: true
+      //required: true
     },
     registrationNumber: {
       type: String,
       trim: true,
       immutable: true
-    }
-  }
+    },
+    contestsParticipated : [{
+      type: String
+    }]
+  },{timestamps: true}
 );
 
 module.exports = mongoose.model('User', userSchema)

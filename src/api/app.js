@@ -2,13 +2,17 @@ const express = require('express')
 const app = express();
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const checkAuth = require('./middleware/checkAuth');
+
+const userRoutes = require("./routes/user")
 
 
 app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+//User Routs
+app.use('/user',userRoutes)
 
 //error handling
 app.use((err, req, res, next) => {
@@ -22,3 +26,5 @@ app.use((err, req, res, next) => {
     message: err.message,
   });
 });
+
+module.exports = app;
