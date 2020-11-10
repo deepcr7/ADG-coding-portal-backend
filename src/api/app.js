@@ -2,7 +2,8 @@ const express = require('express')
 const app = express();
 const bodyParser = require('body-parser')
 const cors = require('cors')
-
+require("../index")
+require("dotenv/config")
 const userRoutes = require("./routes/user")
 
 
@@ -26,5 +27,7 @@ app.use((err, req, res, next) => {
     message: err.message,
   });
 });
+
+
 
 module.exports = app;
