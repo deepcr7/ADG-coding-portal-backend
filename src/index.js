@@ -1,7 +1,8 @@
 const mongoose= require('mongoose')
 const app = require("./api/app")
-
+require('dotenv').config();
 const uri = process.env.MONGODB_URI;
+
 
 mongoose.connect(uri, { useNewUrlParser: true,useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false})
   .then(() => 
