@@ -6,13 +6,12 @@ const questionSchema = mongoose.Schema(
       type: String,
       required: true
     },
-    Questions : [
+    Question: 
       {
         type: String,
-        trim: true,
         lowercase: true
       }
-    ],
+    ,
     TestCases : [
       {
         type: String,
@@ -20,6 +19,7 @@ const questionSchema = mongoose.Schema(
         lowercase: true
       }
     ],
+    constraints: String,
     Solution : [
       {
         type: String,
@@ -27,20 +27,24 @@ const questionSchema = mongoose.Schema(
         lowercase: true
       }
     ],
-    languagesUsed: [{
+    languageUsed: {
       type: String,
       required: true,
       trim: true
-    }],
+    },
     languagesAllowed: [{
       type: String,
       required: true,
       trim: true
     }],
-    submissionTime: {
-      type: Date,
-      required: true
-    }
+    // submissionTime: {
+    //   type: Date,
+    //   required: true
+    // },
+    timeLimit: Double,
+    memoryLimit: Number,
+    sampleInput: String,
+    sampleOutput: String
   }
 );
 

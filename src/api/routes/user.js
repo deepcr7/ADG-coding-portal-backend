@@ -15,6 +15,7 @@ router.post('/login',login.loginFunction)
 //get the user
 router.get('/getuser',checkAuth,getUser.getUserFunction)
 
+
 module.exports = router
 
 
