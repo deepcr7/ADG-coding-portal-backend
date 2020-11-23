@@ -1,8 +1,7 @@
 const express= require("express");
 const router = express.Router();
 
-
-const submission= require('../handlers/submission');
+const submission= require('../handlers/submit');
 
 
 //submit
